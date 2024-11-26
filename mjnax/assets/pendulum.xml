@@ -1,0 +1,41 @@
+<mujoco model="pendulum">
+    <include file="scene.xml"/>
+	<compiler inertiafromgeom="true"/>
+	<default>
+		<joint armature="0" damping="0.4" limited="true"/>
+		<geom contype="0" friction="1 0.1 0.1" material="geom"/>
+		<motor ctrlrange="-1 1"/>
+	</default>
+	<statistic center="0 0 0.35"/>
+		
+	<visual>
+		<global elevation = "-25" azimuth= "125" fovy="40" offwidth = "1500" offheight = "1000"/>
+	</visual>
+	
+	<option gravity="0 0 -9.81" integrator="RK4" timestep="0.02"/>
+	<size nstack="3000"/>
+	<worldbody>
+	    <geom condim="3" material="groundplane" name="floor" pos="0 0 -0.1" size="1 1 0.1" type="plane"/>
+	    <!--  ================= PENDULUM ================= /-->
+		<body name="pin" pos="0 0 0.7" quat="1 1 0 0">
+		<geom name="pin" size="0.020 0.15" type="cylinder" material="fixed-geom-mat"/>
+        	<body name="pole" pos="0 0 0.075" euler="90 30 90">
+				<joint axis="1 0 0" name="hinge" pos="0 0 0" ref="30" stiffness="0" limited="false" range="-180 180" type="hinge"/>
+				<geom fromto="0 0 0 0.001 0 0.6" name="cpole" size="0.049 0.2" type="capsule"/>
+				<geom name="top" size="0.06 0.05" quat="0 1 0 1" type="cylinder"/>
+				<body name="tip" pos="0.0 0 0.6" quat="1 0 0 0">
+					<geom name="tip" size="0.075 0.05" type="cylinder"/>
+				</body>
+			</body>
+			<body name="arm" pos="0 -0.4 -0.125" quat="1 1 0 0">
+				<geom name="arm" size="0.025 0.4" type="cylinder" material="fixed-geom-mat"/>
+				<body name="base" pos="0 0.0 0.39" quat="1 0 0 0">
+					<geom name="base" size="0.15 0.010" type="cylinder" material="fixed-geom-mat"/>
+				</body>
+			</body>
+		</body>
+	</worldbody>
+	<actuator>
+		<motor ctrllimited="true" ctrlrange="-1 1" gear="12" joint="hinge" name="main"/>
+	</actuator>
+</mujoco>

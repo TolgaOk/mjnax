@@ -1,0 +1,33 @@
+<mujoco model="robot scene">
+  <!-- <include file="robot.xml"/> -->
+
+  <statistic center="0 0 0.8" extent="2"/>
+
+  <visual>
+    <headlight diffuse="0.3 0.3 0.3" ambient="0.6 0.6 0.6" specular="0.2 0.2 0.2"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="120" elevation="-20"/>
+  </visual>
+
+  <asset>
+    <!-- Solid gray skybox -->
+    <texture type="skybox" builtin="flat" rgb1="0.5 0.5 0.5" width="1" height="1"/>
+    
+    <!-- Ground texture remains the same -->
+    <texture type="2d" name="groundplane" builtin="checker" mark="cross" rgb1="0.84 0.84 0.84" rgb2="0.89 0.89 0.89"
+      markrgb="0.4 0.4 0.4" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.05" shininess="0.5" />
+
+    <!-- Geom materials -->
+    <texture builtin="flat" height="128" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.85490197 0.5137255  0.34" rgb2="0.87 0.66 0.47" type="cube" width="128"/>
+    <material name="geom" texture="texgeom" texuniform="true"/>
+
+    <texture builtin="flat" height="128" mark="cross" markrgb="1 1 1" name="fixed-geom-text" random="0.01" rgb1="0.65 0.65 0.65" rgb2="0.4 0.4 0.4" type="cube" width="128"/>
+    <material name="fixed-geom-mat" texture="fixed-geom-text" texuniform="true"/>
+
+  </asset>
+
+  <worldbody>
+    <light pos="1 -1 1.5" dir="-1 1 -1" diffuse="0.4 0.4 0.4" directional="true"/>
+  </worldbody>
+</mujoco>
