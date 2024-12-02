@@ -1,38 +1,17 @@
-from tabnanny import check
-from typing import Any, Dict, Tuple, TypeVar, Union, Optional
-from functools import partial
+from typing import Union
 import chex
 import jax
 import jax.numpy as jnp
-import jax.random as jrd
-from mujoco import mjx
-import mujoco
 
-from gymnax.environments.environment import Environment
 from gymnax.environments import spaces
 from mjnax.mjxenv import MjxEnvironment, MjxModelType, MjxStateType
 
 
 class Pendulum(MjxEnvironment):
-    """
-    Pendulum Environment.
+    """ Pendulum Environment with repeated actions"""
 
-    A Gymnax-integrated environment modeling a single inverted pendulum. 
-
-    Default Attributes:
-        xml_path (str):
-            Path to the MuJoCo XML model file defining the pendulum's physical properties and configuration.
-        n_repeat_act (int):
-            Number of frames to maintain in the state buffer for temporal dependencies.
-        reward_temp (int):
-            Temperature parameter used to scale the reward function, influencing the sensitivity to angle deviations.
-        reward_angle (float):
-            Threshold angle (in radians) used in the reward calculation to determine the pendulum's deviation from the upright position.
-    """
     xml_path: str = "assets/pendulum.xml"
     n_repeat_act: int = 4
-    reward_temp: int = 100
-    reward_angle: float = jnp.pi / 35
 
     def calculate_reward(self,
                          key: chex.PRNGKey,
