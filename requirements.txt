@@ -1,0 +1,6 @@
+jax == 0.4.13
+flax
+mujoco
+gymnax
+chex
+mediapy

@@ -32,8 +32,7 @@ class Pendulum(MjxEnvironment):
     xml_path: str = "assets/pendulum.xml"
     n_repeat_act: int = 4
     reward_temp: int = 100
-    reward_angle: float = jnp.pi / 15
-    max_run_time: float = 10.0  # seconds
+    reward_angle: float = jnp.pi / 35
 
     def calculate_reward(self,
                          key: chex.PRNGKey,
@@ -43,11 +42,8 @@ class Pendulum(MjxEnvironment):
                          params: MjxModelType
                          ) -> chex.Array:
         """ Positive reward for upright position. Reward is in range [0, 1]"""
-        pos = (jnp.mod(jnp.abs(next_state.qpos[-1][0]), jnp.pi)
-               * jnp.sign(next_state.qpos[-1][0])) / jnp.pi
-        return (- jnp.tanh((pos + 1 - self.reward_angle) * self.reward_temp)
-                + jnp.tanh((pos - 1 + self.reward_angle) * self.reward_temp)
-                ) / 2 + 1
+        angular_pos_cos = jnp.cos(state.qpos[:][0])
+        return (-angular_pos_cos).min()
 
     def get_obs(self,
                 key: chex.PRNGKey,

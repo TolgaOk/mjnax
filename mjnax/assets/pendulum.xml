@@ -7,11 +7,11 @@
 		<motor ctrlrange="-1 1"/>
 	</default>
 	<statistic center="0 0 0.35"/>
-		
+
 	<visual>
 		<global elevation = "-25" azimuth= "125" fovy="40" offwidth = "1500" offheight = "1000"/>
 	</visual>
-	
+
 	<option gravity="0 0 -9.81" integrator="RK4" timestep="0.02"/>
 	<size nstack="3000"/>
 	<worldbody>
@@ -36,6 +36,6 @@
 		</body>
 	</worldbody>
 	<actuator>
-		<motor ctrllimited="true" ctrlrange="-1 1" gear="25" joint="hinge" name="main"/>
+		<motor ctrllimited="true" ctrlrange="-1 1" gear="12" joint="hinge" name="main"/>
 	</actuator>
 </mujoco>
