@@ -1,6 +1,6 @@
-jax == 0.4.13
-flax
-mujoco
-gymnax
-chex
-mediapy
+jax == 0.4.35
+flax == 0.9.0
+mujoco-mjx == 3.2.5
+gymnax == 0.0.8
+chex == 0.1.87
+mediapy == 1.2.2
