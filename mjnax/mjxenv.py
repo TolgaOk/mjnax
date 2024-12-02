@@ -28,7 +28,7 @@ class MjxEnvironment(Environment[MjxStateType, MjxModelType]):
 
     @property
     def mj_model(self) -> MjxModelType:
-        absolute_path = os.path.join(mjnax.__path__._path[0], self.xml_path)
+        absolute_path = os.path.join(mjnax.__path__[0], self.xml_path)
         return mujoco.MjModel.from_xml_path(absolute_path)
 
     @partial(jax.jit, static_argnums=(0,))

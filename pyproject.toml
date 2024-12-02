@@ -1,0 +1,13 @@
+[project]
+name = "mjnax"
+authors = [
+    {name = "Tolga Ok", email = "tok@tudelft.nl"}
+]
+version = "0.1.0"
+requires-python = ">=3.11"
+readme = "README.md"
+description = "MuJoCo-based control environments compatible with gymnax."
+license = {text = "MIT License"}
+
+[tool.autopep8]
+max_line_length = 100

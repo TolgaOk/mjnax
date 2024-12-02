@@ -1,6 +1,8 @@
 # MuJoCo Gymnax
 
-MuJoCo-based control environments compatible with [gymnax](https://github.com/RobertTLange/gymnax).
+MuJoCo-based control environments compatible with gymnax.
+
+(https://github.com/RobertTLange/gymnax).
 
 ## How to use
 
@@ -59,8 +61,8 @@ Currently supported environments.
 
 |Name                |Observation Space |Action Space      |
 |:------------------:|:----------------:|:----------------:|
-|  Pendulum          |Continuous 3      |Continuous 1      |
-|  DiscretePendulum  |Discrete 121      |Discrete 3        |
+|  Pendulum          |Continuous [3]    |Continuous [1]    |
+|  DiscretePendulum  |Discrete [121]    |Discrete [3]      |
 |  Cartpole          |:x:               |:x:               |
 |  Swimmer           |:x:               |:x:               |
 |  Pusher            |:x:               |:x:               |
