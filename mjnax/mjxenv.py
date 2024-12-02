@@ -8,7 +8,6 @@ import jax.random as jrd
 from mujoco import mjx
 import mujoco
 from gymnax.environments.environment import Environment
-from gymnax.environments import spaces
 
 import mjnax
 

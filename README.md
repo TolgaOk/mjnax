@@ -1,20 +1,23 @@
-# MuJoCo Gymnax (Mjnax)
+# MuJoCo Gymnax
 
-MuJoCo based control environments compatible with [gymnnax](https://github.com/RobertTLange/gymnax).
+MuJoCo-based control environments compatible with [gymnax](https://github.com/RobertTLange/gymnax).
 
 ## How to use
 
 **Interactively render a scene**
+
 ```bash
 python -m mujoco.viewer --mjcf=./mjnax/assets/cartpole.xml
 ```
 
 **Passive rendering**
 
-This is only possible in Linux and in mac OS (with ```mjpython```). See [MuJoCo documentation](https://mujoco.readthedocs.io/en/stable/python.html) for details.
+This is only possible on Linux and macOS (with mjpython). See the [MuJoCo documentation](https://mujoco.readthedocs.io/en/stable/python.html) for details.
 
 
 **Video rendering**
+
+<img src="./doc/pendulum-cem.gif" width="320" alt="Pendulum Environment">
 
 Make a video of a recorded episode.
 
@@ -65,7 +68,7 @@ Currently supported environments.
 
 ## Benchmarks
 
-:warning: On going ...
+:warning: Ongoing ...
 
 ## Installation
 
