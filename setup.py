@@ -27,7 +27,10 @@ setup(
     license="MIT",
 
     # Package info
-    packages=["mjnax", "mjnax.assets"],
+    packages=["mjnax"],
+    package_data={
+        "mjnax.assets": ["*"],
+    },
     install_requires=[],
     zip_safe=False
 )
