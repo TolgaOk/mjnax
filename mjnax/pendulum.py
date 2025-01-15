@@ -8,7 +8,7 @@ from mjnax.mjxenv import MjxEnvironment, MjxModelType, MjxStateType
 
 
 class Pendulum(MjxEnvironment):
-    """ Pendulum Environment with repeated actions"""
+    """ Infinite horizon pendulum environment with repeated actions """
 
     xml_path: str = "assets/pendulum.xml"
     n_repeat_act: int = 4
@@ -81,7 +81,7 @@ class DiscretizedPendulum(Pendulum):
     to action and state spaces, allowing finite MDP analysis.
     """
 
-    n_bins = 11
+    n_bins = 31
 
     def get_obs(self,
                 key: chex.PRNGKey,
@@ -103,8 +103,8 @@ class DiscretizedPendulum(Pendulum):
 
     def step_mjx(self,
                  key: chex.PRNGKey,
-                 action: chex.Array,
                  state: MjxStateType,
+                 action: chex.Array,
                  params: MjxModelType
                  ) -> Union[int, float, chex.Array]:
         """ Step Pendulum by converting the discrete actions to continuous ones. """
